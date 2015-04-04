@@ -7,6 +7,10 @@
 	<% if pokemon.trainer_id == @trainer.id %>
 		Name:  <%= pokemon.name %>
 		Level: <%= pokemon.level %>
+		Health: <%= pokemon.health %>
+		<%= button_to "Damage!", damage_path(id: pokemon.id), :class => "button medium", :method => :patch %>	
 	<% end %>
 <% end %>
-
+<% if current_trainer.id == @trainer.id %>
+	<%= link_to 'Create New', new_path %>
+<% end %>
